@@ -1,0 +1,17 @@
+{
+    "name": "UIFeedbackGenerator",
+    "rootNamespace": "",
+    "references": [
+        "GUID:26cd20c0e45364f6395e53439f54594d",
+        "GUID:6a8a5494810cb8e46a0aa975c961c708"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
