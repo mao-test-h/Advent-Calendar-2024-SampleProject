@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Examples/UIFeedbackGenerator/UIFeedbackGeneratorExample.unity
+    guid: 1bb18bea80b894e56979c53618b57396
   m_configObjects: {}
