@@ -2,8 +2,8 @@ import Foundation
 import UIKit
 
 // インスタンス化
-@_cdecl("createUISelectionFeedbackGenerator")
-func createUISelectionFeedbackGenerator() -> UnsafeMutableRawPointer {
+@_cdecl("init_UISelectionFeedbackGenerator")
+func init_UISelectionFeedbackGenerator() -> UnsafeMutableRawPointer {
     let instance : UISelectionFeedbackGenerator
     if #available(iOS 17.5, *),
        let rootView = UnityFramework.getInstance().appController().rootView {
@@ -17,22 +17,22 @@ func createUISelectionFeedbackGenerator() -> UnsafeMutableRawPointer {
 }
 
 // 解放
-@_cdecl("releaseUISelectionFeedbackGenerator")
-func releaseUISelectionFeedbackGenerator(_ instancePtr: UnsafeRawPointer) {
+@_cdecl("release_UISelectionFeedbackGenerator")
+func release_UISelectionFeedbackGenerator(_ instancePtr: UnsafeRawPointer) {
     let unmanaged = Unmanaged<UISelectionFeedbackGenerator>.fromOpaque(instancePtr)
     unmanaged.release()
 }
 
 // 準備
-@_cdecl("prepareUISelectionFeedbackGenerator")
-func prepareUISelectionFeedbackGenerator(_ instancePtr: UnsafeRawPointer) {
+@_cdecl("prepare_UISelectionFeedbackGenerator")
+func prepare_UISelectionFeedbackGenerator(_ instancePtr: UnsafeRawPointer) {
     let instance = Unmanaged<UISelectionFeedbackGenerator>.fromOpaque(instancePtr).takeUnretainedValue()
     instance.prepare()
 }
 
 // 再生
-@_cdecl("selectionChangedUISelectionFeedbackGenerator")
-func selectionChangedUISelectionFeedbackGenerator(_ instancePtr: UnsafeRawPointer) {
+@_cdecl("selectionChanged_UISelectionFeedbackGenerator")
+func selectionChanged_UISelectionFeedbackGenerator(_ instancePtr: UnsafeRawPointer) {
     let instance = Unmanaged<UISelectionFeedbackGenerator>.fromOpaque(instancePtr).takeUnretainedValue()
     instance.selectionChanged()
 }

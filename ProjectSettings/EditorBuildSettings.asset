@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Examples/UIFeedbackGenerator/UIFeedbackGeneratorExample.unity
     guid: 1bb18bea80b894e56979c53618b57396
+  - enabled: 1
+    path: Assets/Examples/CoreHaptics/CoreHapticsExample.unity
+    guid: e4b5f516dcb01417fb0b4be51efd8f84
   m_configObjects: {}

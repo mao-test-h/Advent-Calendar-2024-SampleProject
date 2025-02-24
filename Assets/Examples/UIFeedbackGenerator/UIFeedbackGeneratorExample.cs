@@ -50,8 +50,6 @@ namespace Examples.UIFeedbackGenerator
 
         private void Start()
         {
-            Application.targetFrameRate = 60;
-
 #if UNITY_IOS && !UNITY_EDITOR
             _selectionFeedbackGenerator = new UISelectionFeedbackGenerator();
             _notificationFeedbackGenerator = new UINotificationFeedbackGenerator();
