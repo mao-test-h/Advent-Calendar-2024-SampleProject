@@ -2,8 +2,8 @@ import Foundation
 import UIKit
 
 // インスタンス化
-@_cdecl("createUINotificationFeedbackGenerator")
-func createUINotificationFeedbackGenerator() -> UnsafeMutableRawPointer {
+@_cdecl("init_UINotificationFeedbackGenerator")
+func init_UINotificationFeedbackGenerator() -> UnsafeMutableRawPointer {
     let instance: UINotificationFeedbackGenerator
     if #available(iOS 17.5, *),
        let rootView = UnityFramework.getInstance().appController().rootView {
@@ -17,22 +17,22 @@ func createUINotificationFeedbackGenerator() -> UnsafeMutableRawPointer {
 }
 
 // 解放
-@_cdecl("releaseUINotificationFeedbackGenerator")
-func releaseUINotificationFeedbackGenerator(_ instancePtr: UnsafeRawPointer) {
+@_cdecl("release_UINotificationFeedbackGenerator")
+func release_UINotificationFeedbackGenerator(_ instancePtr: UnsafeRawPointer) {
     let unmanaged = Unmanaged<UINotificationFeedbackGenerator>.fromOpaque(instancePtr)
     unmanaged.release()
 }
 
 // 準備
-@_cdecl("prepareUINotificationFeedbackGenerator")
-func prepareUINotificationFeedbackGenerator(_ instancePtr: UnsafeRawPointer) {
+@_cdecl("prepare_UINotificationFeedbackGenerator")
+func prepare_UINotificationFeedbackGenerator(_ instancePtr: UnsafeRawPointer) {
     let instance = Unmanaged<UINotificationFeedbackGenerator>.fromOpaque(instancePtr).takeUnretainedValue()
     instance.prepare()
 }
 
 // 再生
-@_cdecl("notificationOccurredUINotificationFeedbackGenerator")
-func notificationOccurredUINotificationFeedbackGenerator(_ instancePtr: UnsafeRawPointer, _ notificationType: Int32) {
+@_cdecl("notificationOccurred_UINotificationFeedbackGenerator")
+func notificationOccurred_UINotificationFeedbackGenerator(_ instancePtr: UnsafeRawPointer, _ notificationType: Int32) {
     guard let notificationType = UINotificationFeedbackGenerator.FeedbackType(rawValue: Int(notificationType)) else {
         fatalError("invalid type")
     }

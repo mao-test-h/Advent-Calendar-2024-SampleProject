@@ -4,17 +4,16 @@ using System.Runtime.InteropServices;
 namespace Examples.UIFeedbackGenerator.Plugins.iOS
 {
     /// <summary>
-    /// `UINotificationFeedbackGenerator` を C# から扱えるようにしたクラス
+    /// <see href="https://developer.apple.com/documentation/uikit/uinotificationfeedbackgenerator">UINotificationFeedbackGenerator</see> の実装
     /// </summary>
-    /// <remarks>
-    /// https://developer.apple.com/documentation/uikit/uinotificationfeedbackgenerator
-    /// </remarks>
     public sealed class UINotificationFeedbackGenerator : IDisposable
     {
-        // ネイティブ側と数値は合わせておくこと
-        // https://developer.apple.com/documentation/uikit/uinotificationfeedbackgenerator/feedbacktype
+        /// <summary>
+        /// <see href="https://developer.apple.com/documentation/uikit/uinotificationfeedbackgenerator/feedbacktype">UINotificationFeedbackGenerator.FeedbackType</see>
+        /// </summary>
         public enum FeedbackType
         {
+            // 数値はネイティブ側と合わせておく必要がある
             Success = 0,
             Warning = 1,
             Error = 2,
@@ -26,7 +25,7 @@ namespace Examples.UIFeedbackGenerator.Plugins.iOS
         {
             _instance = NativeMethod();
 
-            [DllImport("__Internal", EntryPoint = "createUINotificationFeedbackGenerator")]
+            [DllImport("__Internal", EntryPoint = "init_UINotificationFeedbackGenerator")]
             static extern IntPtr NativeMethod();
         }
 
@@ -34,7 +33,7 @@ namespace Examples.UIFeedbackGenerator.Plugins.iOS
         {
             NativeMethod(_instance);
 
-            [DllImport("__Internal", EntryPoint = "releaseUINotificationFeedbackGenerator")]
+            [DllImport("__Internal", EntryPoint = "release_UINotificationFeedbackGenerator")]
             static extern void NativeMethod(IntPtr instance);
         }
 
@@ -42,7 +41,7 @@ namespace Examples.UIFeedbackGenerator.Plugins.iOS
         {
             NativeMethod(_instance);
 
-            [DllImport("__Internal", EntryPoint = "prepareUINotificationFeedbackGenerator")]
+            [DllImport("__Internal", EntryPoint = "prepare_UINotificationFeedbackGenerator")]
             static extern void NativeMethod(IntPtr instance);
         }
 
@@ -50,7 +49,7 @@ namespace Examples.UIFeedbackGenerator.Plugins.iOS
         {
             NativeMethod(_instance, feedbackType);
 
-            [DllImport("__Internal", EntryPoint = "notificationOccurredUINotificationFeedbackGenerator")]
+            [DllImport("__Internal", EntryPoint = "notificationOccurred_UINotificationFeedbackGenerator")]
             static extern void NativeMethod(IntPtr instance, FeedbackType feedbackType);
         }
     }

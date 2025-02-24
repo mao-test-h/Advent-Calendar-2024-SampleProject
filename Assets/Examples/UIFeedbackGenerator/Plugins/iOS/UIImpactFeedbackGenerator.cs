@@ -4,17 +4,16 @@ using System.Runtime.InteropServices;
 namespace Examples.UIFeedbackGenerator.Plugins.iOS
 {
     /// <summary>
-    /// `UIImpactFeedbackGenerator` を C# から扱えるようにしたクラス
+    /// <see href="https://developer.apple.com/documentation/uikit/uiimpactfeedbackgenerator">UIImpactFeedbackGenerator</see> の実装
     /// </summary>
-    /// <remarks>
-    /// https://developer.apple.com/documentation/uikit/uiimpactfeedbackgenerator
-    /// </remarks>
     public sealed class UIImpactFeedbackGenerator : IDisposable
     {
-        // ネイティブ側と数値は合わせておくこと
-        // https://developer.apple.com/documentation/uikit/uiimpactfeedbackgenerator/feedbackstyle
+        /// <summary>
+        /// <see href="https://developer.apple.com/documentation/uikit/uiimpactfeedbackgenerator/feedbackstyle">UIImpactFeedbackGenerator.FeedbackStyle</see>
+        /// </summary>
         public enum FeedbackStyle : Int32
         {
+            // 数値はネイティブ側と合わせておく必要がある
             Light = 0,
             Medium = 1,
             Heavy = 2,
@@ -28,7 +27,7 @@ namespace Examples.UIFeedbackGenerator.Plugins.iOS
         {
             _instance = NativeMethod(style);
 
-            [DllImport("__Internal", EntryPoint = "createUIImpactFeedbackGenerator")]
+            [DllImport("__Internal", EntryPoint = "init_UIImpactFeedbackGenerator")]
             static extern IntPtr NativeMethod(FeedbackStyle style);
         }
 
@@ -36,7 +35,7 @@ namespace Examples.UIFeedbackGenerator.Plugins.iOS
         {
             NativeMethod(_instance);
 
-            [DllImport("__Internal", EntryPoint = "releaseUIImpactFeedbackGenerator")]
+            [DllImport("__Internal", EntryPoint = "release_UIImpactFeedbackGenerator")]
             static extern void NativeMethod(IntPtr instance);
         }
 
@@ -44,7 +43,7 @@ namespace Examples.UIFeedbackGenerator.Plugins.iOS
         {
             NativeMethod(_instance);
 
-            [DllImport("__Internal", EntryPoint = "prepareUIImpactFeedbackGenerator")]
+            [DllImport("__Internal", EntryPoint = "prepare_UIImpactFeedbackGenerator")]
             static extern void NativeMethod(IntPtr instance);
         }
 
@@ -52,7 +51,7 @@ namespace Examples.UIFeedbackGenerator.Plugins.iOS
         {
             NativeMethod(_instance);
 
-            [DllImport("__Internal", EntryPoint = "impactOccurredUIImpactFeedbackGenerator")]
+            [DllImport("__Internal", EntryPoint = "impactOccurred_UIImpactFeedbackGenerator")]
             static extern void NativeMethod(IntPtr instance);
         }
 
@@ -61,7 +60,7 @@ namespace Examples.UIFeedbackGenerator.Plugins.iOS
         {
             NativeMethod(_instance, intensity);
 
-            [DllImport("__Internal", EntryPoint = "impactOccurredUIImpactFeedbackGeneratorWithIntensity")]
+            [DllImport("__Internal", EntryPoint = "impactOccurred_UIImpactFeedbackGeneratorWithIntensity")]
             static extern void NativeMethod(IntPtr instance, float intensity);
         }
     }
