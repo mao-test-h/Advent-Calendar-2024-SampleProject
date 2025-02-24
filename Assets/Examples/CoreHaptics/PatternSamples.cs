@@ -68,6 +68,7 @@ namespace Examples.CoreHaptics
 
         public static CHHapticPattern Sample2()
         {
+            // 検証用
             var hapticEvents = new CHHapticEvent[6];
             for (var i = 0; i < hapticEvents.Length; ++i)
             {
@@ -89,7 +90,19 @@ namespace Examples.CoreHaptics
         public static CHHapticPattern Sample3()
         {
             // 検証用
-            return new CHHapticPattern(null);
+            var hapticEvents = new[]
+            {
+                new CHHapticEvent(
+                    CHHapticEvent.Type.HapticTransient,
+                    new[]
+                    {
+                        new CHHapticEventParameter(CHHapticEventParameter.ID.HapticIntensity, 1f),
+                        new CHHapticEventParameter(CHHapticEventParameter.ID.HapticSharpness, 1f),
+                    },
+                    relativeTime: 0f),
+            };
+
+            return new CHHapticPattern(hapticEvents);
         }
     }
 }
