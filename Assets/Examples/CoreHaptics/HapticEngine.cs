@@ -99,6 +99,9 @@ namespace Examples.CoreHaptics
                     break;
             }
 
+            // NOTE:
+            // 今回はサンプル実装と言うのもあって、エラーの種類関係なしに復帰を行うような簡易実装に留めているが、
+            // ちゃんとやるならエラー内容を見て適切な復帰処理を実装したほうが良いかも。
             _isNeedsStart = true;
         }
 
