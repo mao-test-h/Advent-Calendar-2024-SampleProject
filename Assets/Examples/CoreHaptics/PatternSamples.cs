@@ -88,7 +88,7 @@ namespace Examples.CoreHaptics
 
         public static CHHapticPattern Sample3()
         {
-            // TODO: 記事を書く時に考える
+            // 検証用
             return new CHHapticPattern(null);
         }
     }
