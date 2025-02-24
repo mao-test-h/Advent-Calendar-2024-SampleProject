@@ -1,0 +1,17 @@
+{
+    "name": "CoreHaptics",
+    "rootNamespace": "",
+    "references": [
+        "GUID:26cd20c0e45364f6395e53439f54594d",
+        "GUID:1798b0ce0a7bd4d84a00e59245fbcca1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
