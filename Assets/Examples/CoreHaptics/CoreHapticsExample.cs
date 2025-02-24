@@ -177,15 +177,14 @@ namespace Examples.CoreHaptics
                 _hapticEngine.PlayPattern(PatternSamples.Sample1());
             });
 
-            // TODO: 他のサンプルを作る
             playSample2.onClick.AddListener(() =>
             {
-                _hapticEngine.PlayPattern(PatternSamples.Sample1());
+                _hapticEngine.PlayPattern(PatternSamples.Sample2());
             });
 
             playSample3.onClick.AddListener(() =>
             {
-                _hapticEngine.PlayPattern(PatternSamples.Sample1());
+                _hapticEngine.PlayPattern(PatternSamples.Sample3());
             });
         }
 
